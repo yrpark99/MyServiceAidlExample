@@ -1,0 +1,7 @@
+**/*.iml
+**/.gradle/
+**/.idea/
+**/.nvim/
+**/.vscode/
+**/build/
+**/local.properties

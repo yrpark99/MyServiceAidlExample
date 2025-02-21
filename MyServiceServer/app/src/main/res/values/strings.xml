@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">MyServiceServer</string>
+    <string name="my_service_server">My service server</string>
+</resources>

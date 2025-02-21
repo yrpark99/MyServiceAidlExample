@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">MyServiceClient</string>
+    <string name="click_to_get_random_number">Click to get random number</string>
+</resources>

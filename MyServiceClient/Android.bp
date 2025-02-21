@@ -1,0 +1,22 @@
+java_library {
+    name: "myserviceclient-aidl",
+    srcs: [
+        "app/src/main/aidl/com/my/myserviceserver/IMyRemoteServiceCallback.aidl",
+        "app/src/main/aidl/com/my/myserviceserver/IMyRemoteService.aidl",
+    ],
+    sdk_version: "current",
+}
+
+android_app {
+    name: "MyServiceClient",
+    certificate: "platform",
+    platform_apis: true,
+    srcs: [
+        "**/*.java",
+    ],
+    resource_dirs: ["app/src/main/res"],
+    static_libs: [
+        "myserviceserver-aidl",
+        "com.google.android.material_material"
+    ],
+}
