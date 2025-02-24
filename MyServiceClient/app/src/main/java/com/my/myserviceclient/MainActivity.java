@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView tvRandomNumber, tvStateFromCallback;
 
     /** Callbacks for service binding */
-    private ServiceConnection serviceConnection = new ServiceConnection() {
+    private final ServiceConnection serviceConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName className, IBinder service) {
             Log.i(TAG, "onServiceConnected() Service is bounded");

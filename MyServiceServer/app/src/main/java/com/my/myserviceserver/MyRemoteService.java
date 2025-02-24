@@ -4,6 +4,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
+import android.os.Looper;
 import android.os.RemoteCallbackList;
 import android.os.RemoteException;
 import android.util.Log;
@@ -13,13 +14,12 @@ import java.util.Random;
 public class MyRemoteService extends Service {
     private final String TAG = "MyServiceServer";
     private final Random mGenerator = new Random();
-    private RemoteCallbackList<IMyRemoteServiceCallback> callbacks = new RemoteCallbackList<>();
-    private final int INTERVAL_MS = 3000;
-    private Handler handler = new Handler();
+    private final RemoteCallbackList<IMyRemoteServiceCallback> callbacks = new RemoteCallbackList<>();
+    private final Handler handler = new Handler(Looper.getMainLooper());
     private boolean isRunning = false;
     private int state = 1;
 
-    private Runnable periodicTask = new Runnable() {
+    private final Runnable periodicTask = new Runnable() {
         @Override
         public void run() {
             if (isRunning) {
@@ -30,7 +30,7 @@ public class MyRemoteService extends Service {
                     Log.e(TAG, "RemoteException", e);
                 }
                 state++;
-                handler.postDelayed(this, INTERVAL_MS);
+                handler.postDelayed(this, 3000);
             }
         }
     };
